@@ -6,6 +6,39 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <h1>Hello world</h1>
+<div class="container">
+    <h1>Desserts</h1>
+    <div class="content">
+        <div class="products">
+            <div class="product">
+                <img src="assets/img/image-waffle-desktop.jpg" alt="Waffle with Berries">
+                <button class="add-to-cart">
+                    <img src="assets/img/icon-add-to-cart.svg" alt="cart icon"> Add to Cart
+                </button>
+                <h3>Waffle with Berries</h3>
+                <p>$6.50</p>
+            </div>
+            <div class="product">
+                <img src="creme-brulee.jpg" alt="Vanilla Bean Crème Brûlée">
+                <h3>Vanilla Bean Crème Brûlée</h3>
+                <p>$7.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <!-- Інші продукти тут -->
+        </div>
+        
+        <div class="cart">
+            <h2>Your Cart</h2>
+            <ul id="cart-items">
+                <!-- Сюди будуть додаватися елементи -->
+            </ul>
+            <p>Total: $<span id="total">0.00</span></p>
+            <button id="confirm-order">Confirm Order</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
+
 </html>

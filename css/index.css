@@ -1,0 +1,116 @@
+@font-face {
+    font-family: 'CustomFont1';
+    src: url('../assets/fonts/RedHatText-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+
+    font-family: 'CustomFont2';
+    src: url('../assets/fonts/RedHatText-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    background-color: hsl(20, 50%, 98%);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+h1 {
+    text-align: left;
+    font-family: 'CustomFont1', sans-serif;
+    font-weight: 700;
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.products {
+    width: 70%;  /* Контейнер з продуктами займає 70% ширини */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.product {
+    font-family: 'CustomFont2';
+    font-size: 14px;
+    border-radius: 10px;
+    text-align: left;
+    position: relative;
+}
+
+h3 {
+    margin-top: 25px;
+    margin-bottom: 7px;
+}
+
+p {
+    margin-top: 7px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    color: hsl(7, 20%, 60%);
+}
+
+.product img {
+    max-width: 100%;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+button.add-to-cart {
+    padding: 10px 15px;
+    background-color: white;
+    color: black;
+    border-radius: 10em;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid black;
+    position: absolute;
+    top: 232px;
+    left: 22%;
+    z-index: 2;
+
+}
+
+button.add-to-cart:hover {
+    background-color: #ff4a4a;
+}
+
+.cart {
+    width: 25%;  /* Контейнер з кошиком займає 25% ширини */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart h2 {
+    margin: 0;
+}
+
+#cart-items {
+    list-style: none;
+    padding: 0;
+}
+
+#cart-items li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#total {
+    font-weight: bold;
+}
