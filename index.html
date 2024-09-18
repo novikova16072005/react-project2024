@@ -149,12 +149,14 @@
         </div>
     
         <div class="cart">
-            <h1>Your Cart <span class="cart-count">(0)</span></h1>
+            <h1 style="color: hsl(14, 86%, 42%)">Your Cart <span class="cart-count">(0)</span></h1>
             <ul class="cart-items">
-                <!-- Список продуктів буде додаватися динамічно -->
             </ul>
-            <p class="empty-cart-message">Cart is empty</p>
-            <p>Total: <span class="total-price">$0.00</span></p>
+            <div class="empty-cart-message">
+                <img src="assets/img/illustration-empty-cart.svg" alt="cart is empty">
+                <p>Your added items will appear here</p></div>
+            <p style="color: rgb(203, 199, 192); font-size: 14px; text-align: left;">Order Total: <span class="total-price">$0.00</span></p>
+            <button class="confirm-order">Confirm Order</button>
         </div>        
     </div>
     </div>

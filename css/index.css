@@ -44,7 +44,7 @@ h1 {
 }
 
 .product {
-    font-family: 'CustomFont2';
+    font-family: 'CustomFont2', sans-serif;
     font-size: 14px;
     border-radius: 10px;
     text-align: left;
@@ -73,6 +73,7 @@ p {
 .product img {
     max-width: 100%;
     border-radius: 10px;
+
     z-index: 1;
 }
 
@@ -134,7 +135,9 @@ button.add-to-cart:hover {
     background-color: white;
     padding: 20px;
     width: 25%;
+    height: fit-content;
     border-radius: 10px;
+    font-family: 'CustomFont1', sans-serif;
 }
 
 .cart-items {
@@ -144,7 +147,9 @@ button.add-to-cart:hover {
 
 .empty-cart-message {
     font-size: 16px;
-    color: #888;
+    color: hsl(14, 25%, 72%);
+    display: grid;
+    place-items: center;
 }
 
 .cart-items li {
@@ -159,5 +164,24 @@ button.add-to-cart:hover {
 
 .total-price {
     font-size: 20px;
+    padding-left: 130px;
     font-weight: bold;
+    color: rgb(75, 70, 70);
+    text-align: right;
+}
+
+button.confirm-order {
+    padding: 10px 15px;
+    background-color: hsl(14, 86%, 42%);
+    color: white;
+    border-radius: 10em;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    width: 70%;
+    text-align: center;
+    margin-left: 15%;
+    margin-top: 15px;
 }
