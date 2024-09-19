@@ -1,6 +1,5 @@
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', function() {
-        // Зміна стану кнопки
         button.style.display = 'none'; // Ховаємо кнопку "Add to Cart"
         let quantitySelector = button.nextElementSibling; // Блок з вибором кількості
         quantitySelector.style.display = 'flex'; // Показуємо блок кількості
