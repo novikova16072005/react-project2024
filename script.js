@@ -1,10 +1,9 @@
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', function() {
-        button.style.display = 'none'; // Ховаємо кнопку "Add to Cart"
-        let quantitySelector = button.nextElementSibling; // Блок з вибором кількості
-        quantitySelector.style.display = 'flex'; // Показуємо блок кількості
+        button.style.display = 'none'; 
+        let quantitySelector = button.nextElementSibling;
+        quantitySelector.style.display = 'flex'; 
         
-        // Додаємо продукт до корзини
         let productName = button.previousElementSibling.previousElementSibling.textContent;
         let price = parseFloat(button.previousElementSibling.dataset.price);
         addToCart(productName, price);
@@ -34,12 +33,10 @@ document.querySelectorAll('.decrease').forEach(button => {
     });
 });
 
-// Функція для додавання продукту до корзини
 function addToCart(productName, price) {
     let cartItems = document.querySelector('.cart-items');
     let emptyCartMessage = document.querySelector('.empty-cart-message');
     
-    // Якщо це перший продукт, приховати повідомлення про порожню корзину
     emptyCartMessage.style.display = 'none';
     
     let existingItem = cartItems.querySelector(`li[data-product="${productName}"]`);
@@ -50,18 +47,16 @@ function addToCart(productName, price) {
         newItem.innerHTML = `<span>${productName}</span> <span class="cart-quantity">1</span> x <span class="cart-price">$${price.toFixed(2)}</span>`;
         cartItems.appendChild(newItem);
     } else {
-        // Якщо продукт вже є, збільшуємо його кількість і оновлюємо ціну
         let currentQuantity = parseInt(existingItem.querySelector('.cart-quantity').textContent);
         existingItem.querySelector('.cart-quantity').textContent = currentQuantity + 1;
         existingItem.querySelector('.cart-price').textContent = `$${((currentQuantity + 1) * price).toFixed(2)}`;
     }
 
-    cartCount++; // Збільшуємо кількість товарів у корзині
+    cartCount++; 
     updateCartCount();
     updateTotalPrice();
 }
 
-// Функція для оновлення кількості продукту в корзині
 function updateCart(productName, newQuantity) {
     let cartItem = document.querySelector(`li[data-product="${productName}"]`);
     let pricePerUnit = parseFloat(cartItem.querySelector('.cart-price').textContent.slice(1)) / parseInt(cartItem.querySelector('.cart-quantity').textContent);
@@ -72,7 +67,6 @@ function updateCart(productName, newQuantity) {
     updateTotalPrice();
 }
 
-// Функція для оновлення загальної суми
 function updateTotalPrice() {
     let totalPrice = 0;
     let cartItems = document.querySelectorAll('.cart-items li');
@@ -92,20 +86,8 @@ function updateTotalPrice() {
     document.querySelector('.total-price').textContent = `$${totalPrice.toFixed(2)}`;
 }
 
-let cartCount = 0;  // Початкова кількість продуктів у корзині
+let cartCount = 0; 
 
 function updateCartCount() {
     document.querySelector('.cart-count').textContent = `(${cartCount})`;
-}
-
-// Функція для видалення товару з корзини
-function removeFromCart(productName) {
-    let cartItems = document.querySelector('.cart-items');
-    let itemToRemove = cartItems.querySelector(`li[data-product="${productName}"]`);
-    if (itemToRemove) {
-        cartItems.removeChild(itemToRemove);
-        cartCount--;  // Зменшуємо кількість товарів
-        updateCartCount();
-        updateTotalPrice();  // Оновлюємо загальну суму корзини
-    }
 }
