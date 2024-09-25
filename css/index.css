@@ -1,15 +1,14 @@
 @font-face {
-    font-family: 'CustomFont1';
+    font-family: 'RedHatItalic';
     src: url('../assets/fonts/RedHatText-Italic-VariableFont_wght.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
 
-    font-family: 'CustomFont2';
+    font-family: 'RedHatText';
     src: url('../assets/fonts/RedHatText-VariableFont_wght.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
-
 
 body {
     background-color: hsl(17, 33%, 96%);
@@ -17,7 +16,7 @@ body {
     padding: 0;
 }
 
-.container {
+.main-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px;
@@ -25,15 +24,16 @@ body {
 
 h1 {
     text-align: left;
-    font-family: 'CustomFont1', sans-serif;
+    font-family: 'RedHatItalic', sans-serif;
     font-weight: 700;
 }
+
 .content {
     display: flex;
     justify-content: space-between;
 }
 
-.container1{
+.container-with-cards {
     width: 70%;
 }
 
@@ -44,19 +44,20 @@ h1 {
 }
 
 .product {
-    font-family: 'CustomFont2', sans-serif;
+    font-family: 'RedHatText', sans-serif;
     font-size: 14px;
     border-radius: 10px;
     text-align: left;
     position: relative;
 }
 
-h3 {
+.description {
     margin-top: 25px;
     margin-bottom: 7px;
+    color: black;
 }
 
-h4{
+.title {
     font-size: 14px;
     margin: 25px 0 -20px;
     color: hsl(14, 25%, 72%);
@@ -73,7 +74,6 @@ p {
 .product img {
     max-width: 100%;
     border-radius: 10px;
-
     z-index: 1;
 }
 
@@ -91,7 +91,6 @@ button.add-to-cart {
     top: 232px;
     left: 22%;
     z-index: 2;
-
 }
 
 button.add-to-cart:hover {
@@ -99,14 +98,14 @@ button.add-to-cart:hover {
 }
 
 .add-to-cart.clicked {
-    background-color: hsl(14, 86%, 42%); 
+    background-color: hsl(14, 86%, 42%);
 }
 
 .quantity-selector {
     align-items: center;
     gap: 10px;
     padding: 7px 15px;
-    background-color: hsl(14, 86%, 42%); 
+    background-color: hsl(14, 86%, 42%);
     color: white;
     border-radius: 10em;
     font-size: 17px;
@@ -120,7 +119,7 @@ button.add-to-cart:hover {
 .quantity-selector button {
     color: white;
     border: 1px solid white;
-    background-color: hsl(14, 86%, 42%); 
+    background-color: hsl(14, 86%, 42%);
     padding: 5px 10px;
     border-radius: 50%;
     font-size: 20px;
@@ -131,13 +130,14 @@ button.add-to-cart:hover {
     font-size: 18px;
     padding: 5px 10px;
 }
+
 .cart {
     background-color: white;
     padding: 20px;
     width: 25%;
     height: fit-content;
     border-radius: 10px;
-    font-family: 'CustomFont1', sans-serif;
+    font-family: 'RedHatItalic', sans-serif;
 }
 
 .cart-items {
@@ -185,3 +185,114 @@ button.confirm-order {
     margin-left: 15%;
     margin-top: 15px;
 }
+
+/* Адаптивність для великих екранів (2560px) */
+@media (min-width: 2560px) {
+    .main-content {
+        max-width: 2000px;
+    }
+
+    .products {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+
+    .cart {
+        width: 25%; 
+    }
+    button.add-to-cart, .quantity-selector {
+        font-size: 14px;
+        top: 70%;
+        left: 30%;
+    }
+}
+
+/* Адаптивність для екранів середнього розміру (1024px) */
+@media (max-width: 1024px) {
+    .products {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+    .container-with-cards {
+        width: 67%;
+    }
+
+    .cart {
+        width: 25%; 
+    }
+    button.add-to-cart, .quantity-selector {
+    font-size: 14px;
+    top: 54%;
+    left: 16%;
+}
+}
+
+
+/* Адаптивність для планшетів (768px) */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 20px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+    }
+
+    .container-with-cards {
+        width: 55%;
+    }
+
+    .cart {
+        width: 35%; 
+    }
+
+    button.add-to-cart, .quantity-selector {
+        top: 49%;
+        left: 15%;
+    }
+}
+
+/* Адаптивність для мобільних пристроїв (425px) */
+@media (max-width: 426px) {
+    .main-content {
+        padding: 10px;
+    }
+
+    .container-with-cards {
+        width: 80%;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .cart {
+        width: 80%; 
+        margin-top: 20px; 
+    }
+
+    button.add-to-cart, .quantity-selector {
+        top: 70%;
+        left: 30%;
+    }
+
+    .total-price {
+        padding-left: 0;
+        text-align: left;
+    }
+}
+@media (max-width: 320px) {
+
+    button.add-to-cart, .quantity-selector {
+        top: 60%;
+        left: 25%;
+    }
+}
+
